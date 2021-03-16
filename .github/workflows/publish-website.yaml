@@ -1,0 +1,26 @@
+name: publish-website
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow on push events but only for the main branch
+  push:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: feeloor/azure-static-website-deploy@master
+        env:
+          SOURCE_DIR: "./public"
+          AZURE_CLIENT_ID: "4295949c-9a18-4ec6-803c-524c3ef5b8aa"
+          AZURE_TENANT_ID: "993a3c2e-4a8f-4a13-8bad-2dfa4fe209de"
+          AZURE_SECRET: "c7927ff3-3c42-45cf-85f8-a525da3f6582"
+          AZURE_SUBSCRIPTION_ID: "8e06fd4a-869b-488a-aaeb-0fd1c3280ebd"
+          AZURE_STORAGE_ACCOUNT_NAME: "public/tangentvisionpublicweb"
+          AZURE_INDEX_DOCUMENT_NAME: "index.html"
+          AZURE_ERROR_DOCUMENT_NAME: "error.html"
