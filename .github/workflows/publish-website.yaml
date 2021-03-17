@@ -21,7 +21,14 @@ jobs:
         azcliversion: 2.0.72
         inlineScript: |
             az storage blob upload-batch --account-name tangentvisionpublicweb -d '$web' -s ./dist
-
+            
+    - name: Purge CDN endpoint
+      uses: azure/CLI@v1
+      with:
+        azcliversion: 2.0.72
+        inlineScript: |
+           az cdn endpoint purge --content-paths  "/*" --profile-name "tangentvision" --name "tangentvision/tangentvision" --resource-group "public"
+           
   # Azure logout 
     - name: logout
       run: |
