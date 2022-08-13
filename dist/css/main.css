@@ -17,7 +17,8 @@ body {
 }
 
 body>* {
-    10px;
+    padding: 10px;
+    padding-left: 80px;
 }
 
 body>header, main {
@@ -28,9 +29,14 @@ body>header, main {
 body>header {
     align-items: flex-end;
     background-color: var(--accent);
+    padding-left: 10px;
 }
 
 main {
     align-items: flex-start;
     padding-left: 80px;
+}
+
+.main-logo {
+    max-width: 100%;
 }
