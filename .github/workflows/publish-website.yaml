@@ -20,14 +20,12 @@ jobs:
     - name: Upload to blob storage
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
         inlineScript: |
-            az storage blob upload-batch -d '$web' -s ./dist --account-name tangentvisionpublicweb
-            
+            az storage blob upload-batch --account-name tangentvisionpublicweb --auth-mode key -d '$web' -s .
+         
     - name: Purge CDN endpoint
       uses: azure/CLI@v1
       with:
-        azcliversion: 2.0.72
         inlineScript: |
            az cdn endpoint purge --content-paths  "/*" --profile-name "tangentvision" --name "tangentvision" --resource-group "public"
            
