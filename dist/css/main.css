@@ -17,7 +17,7 @@ body {
 }
 
 body>* {
-    padding: var(--spacing) calc(var(--spacing) * 10);
+    10px;
 }
 
 body>header, main {
@@ -32,8 +32,5 @@ body>header {
 
 main {
     align-items: flex-start;
-}
-
-.main-logo {
-    margin-left: -80px;
+    padding-left: 80px;
 }
